@@ -870,6 +870,53 @@ class InstancesResource extends Resource {
   }
 
   /**
+   * Attaches a disk resource to an instance.
+   *
+   * [request] - AttachedDisk to send in this request
+   *
+   * [project] - Project name.
+   *
+   * [zone] - Name of the zone scoping this request.
+   *
+   * [instance] - Instance name.
+   *
+   * [optParams] - Additional query parameters
+   */
+  Future<Operation> attachDisk(AttachedDisk request, String project, String zone, String instance, {Map optParams}) {
+    var completer = new Completer();
+    var url = "{project}/zones/{zone}/instances/{instance}/attachDisk";
+    var urlParams = new Map();
+    var queryParams = new Map();
+
+    var paramErrors = new List();
+    if (instance == null) paramErrors.add("instance is required");
+    if (instance != null) urlParams["instance"] = instance;
+    if (project == null) paramErrors.add("project is required");
+    if (project != null) urlParams["project"] = project;
+    if (zone == null) paramErrors.add("zone is required");
+    if (zone != null) urlParams["zone"] = zone;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new Operation.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
    * Deletes the specified instance resource.
    *
    * [project] - Name of the project scoping this request.
@@ -942,6 +989,55 @@ class InstancesResource extends Resource {
     if (instance != null) urlParams["instance"] = instance;
     if (network_interface == null) paramErrors.add("network_interface is required");
     if (network_interface != null) queryParams["network_interface"] = network_interface;
+    if (project == null) paramErrors.add("project is required");
+    if (project != null) urlParams["project"] = project;
+    if (zone == null) paramErrors.add("zone is required");
+    if (zone != null) urlParams["zone"] = zone;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "POST", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new Operation.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * Detaches a disk from an instance.
+   *
+   * [project] - Project name.
+   *
+   * [zone] - Name of the zone scoping this request.
+   *
+   * [instance] - Instance name.
+   *
+   * [deviceName] - Disk device name to detach.
+   *
+   * [optParams] - Additional query parameters
+   */
+  Future<Operation> detachDisk(String project, String zone, String instance, String deviceName, {Map optParams}) {
+    var completer = new Completer();
+    var url = "{project}/zones/{zone}/instances/{instance}/detachDisk";
+    var urlParams = new Map();
+    var queryParams = new Map();
+
+    var paramErrors = new List();
+    if (deviceName == null) paramErrors.add("deviceName is required");
+    if (deviceName != null) queryParams["deviceName"] = deviceName;
+    if (instance == null) paramErrors.add("instance is required");
+    if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (zone == null) paramErrors.add("zone is required");
