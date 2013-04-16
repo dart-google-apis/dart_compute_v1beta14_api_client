@@ -16,13 +16,13 @@ class DisksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> delete(String project, String zone, String disk, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> delete(core.String project, core.String zone, core.String disk, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/disks/{disk}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (disk == null) paramErrors.add("disk is required");
     if (disk != null) urlParams["disk"] = disk;
     if (project == null) paramErrors.add("project is required");
@@ -61,13 +61,13 @@ class DisksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Disk> get(String project, String zone, String disk, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Disk> get(core.String project, core.String zone, core.String disk, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/disks/{disk}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (disk == null) paramErrors.add("disk is required");
     if (disk != null) urlParams["disk"] = disk;
     if (project == null) paramErrors.add("project is required");
@@ -108,13 +108,13 @@ class DisksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> insert(Disk request, String project, String zone, {String sourceImage, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> insert(Disk request, core.String project, core.String zone, {core.String sourceImage, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/disks";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (sourceImage != null) queryParams["sourceImage"] = sourceImage;
@@ -159,13 +159,13 @@ class DisksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<DiskList> list(String project, String zone, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<DiskList> list(core.String project, core.String zone, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/disks";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -209,13 +209,13 @@ class FirewallsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> delete(String project, String firewall, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> delete(core.String project, core.String firewall, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/firewalls/{firewall}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (firewall == null) paramErrors.add("firewall is required");
     if (firewall != null) urlParams["firewall"] = firewall;
     if (project == null) paramErrors.add("project is required");
@@ -250,13 +250,13 @@ class FirewallsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Firewall> get(String project, String firewall, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Firewall> get(core.String project, core.String firewall, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/firewalls/{firewall}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (firewall == null) paramErrors.add("firewall is required");
     if (firewall != null) urlParams["firewall"] = firewall;
     if (project == null) paramErrors.add("project is required");
@@ -291,13 +291,13 @@ class FirewallsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> insert(Firewall request, String project, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> insert(Firewall request, core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/firewalls";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (optParams != null) {
@@ -337,13 +337,13 @@ class FirewallsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<FirewallList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<FirewallList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/firewalls";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -381,13 +381,13 @@ class FirewallsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> patch(Firewall request, String project, String firewall, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> patch(Firewall request, core.String project, core.String firewall, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/firewalls/{firewall}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (firewall == null) paramErrors.add("firewall is required");
     if (firewall != null) urlParams["firewall"] = firewall;
     if (project == null) paramErrors.add("project is required");
@@ -424,13 +424,13 @@ class FirewallsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> update(Firewall request, String project, String firewall, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> update(Firewall request, core.String project, core.String firewall, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/firewalls/{firewall}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (firewall == null) paramErrors.add("firewall is required");
     if (firewall != null) urlParams["firewall"] = firewall;
     if (project == null) paramErrors.add("project is required");
@@ -471,13 +471,13 @@ class GlobalOperationsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Map> delete(String project, String operation, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<core.Map> delete(core.String project, core.String operation, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/operations/{operation}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (operation == null) paramErrors.add("operation is required");
     if (operation != null) urlParams["operation"] = operation;
     if (project == null) paramErrors.add("project is required");
@@ -512,13 +512,13 @@ class GlobalOperationsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> get(String project, String operation, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> get(core.String project, core.String operation, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/operations/{operation}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (operation == null) paramErrors.add("operation is required");
     if (operation != null) urlParams["operation"] = operation;
     if (project == null) paramErrors.add("project is required");
@@ -560,13 +560,13 @@ class GlobalOperationsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<OperationList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<OperationList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/operations";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -608,13 +608,13 @@ class ImagesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> delete(String project, String image, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> delete(core.String project, core.String image, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/images/{image}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (image == null) paramErrors.add("image is required");
     if (image != null) urlParams["image"] = image;
     if (project == null) paramErrors.add("project is required");
@@ -651,13 +651,13 @@ class ImagesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> deprecate(DeprecationStatus request, String project, String image, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> deprecate(DeprecationStatus request, core.String project, core.String image, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/images/{image}/deprecate";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (image == null) paramErrors.add("image is required");
     if (image != null) urlParams["image"] = image;
     if (project == null) paramErrors.add("project is required");
@@ -692,13 +692,13 @@ class ImagesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Image> get(String project, String image, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Image> get(core.String project, core.String image, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/images/{image}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (image == null) paramErrors.add("image is required");
     if (image != null) urlParams["image"] = image;
     if (project == null) paramErrors.add("project is required");
@@ -733,13 +733,13 @@ class ImagesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> insert(Image request, String project, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> insert(Image request, core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/images";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (optParams != null) {
@@ -779,13 +779,13 @@ class ImagesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<ImageList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<ImageList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/images";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -833,13 +833,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> addAccessConfig(AccessConfig request, String project, String zone, String instance, String network_interface, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> addAccessConfig(AccessConfig request, core.String project, core.String zone, core.String instance, core.String network_interface, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/addAccessConfig";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (network_interface == null) paramErrors.add("network_interface is required");
@@ -882,13 +882,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> attachDisk(AttachedDisk request, String project, String zone, String instance, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> attachDisk(AttachedDisk request, core.String project, core.String zone, core.String instance, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/attachDisk";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
@@ -927,13 +927,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> delete(String project, String zone, String instance, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> delete(core.String project, core.String zone, core.String instance, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
@@ -976,13 +976,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> deleteAccessConfig(String project, String zone, String instance, String access_config, String network_interface, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> deleteAccessConfig(core.String project, core.String zone, core.String instance, core.String access_config, core.String network_interface, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/deleteAccessConfig";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (access_config == null) paramErrors.add("access_config is required");
     if (access_config != null) queryParams["access_config"] = access_config;
     if (instance == null) paramErrors.add("instance is required");
@@ -1027,13 +1027,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> detachDisk(String project, String zone, String instance, String deviceName, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> detachDisk(core.String project, core.String zone, core.String instance, core.String deviceName, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/detachDisk";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (deviceName == null) paramErrors.add("deviceName is required");
     if (deviceName != null) queryParams["deviceName"] = deviceName;
     if (instance == null) paramErrors.add("instance is required");
@@ -1074,13 +1074,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Instance> get(String project, String zone, String instance, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Instance> get(core.String project, core.String zone, core.String instance, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
@@ -1119,13 +1119,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<SerialPortOutput> getSerialPortOutput(String project, String zone, String instance, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<SerialPortOutput> getSerialPortOutput(core.String project, core.String zone, core.String instance, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/serialPort";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
@@ -1164,13 +1164,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> insert(Instance request, String project, String zone, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> insert(Instance request, core.String project, core.String zone, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (zone == null) paramErrors.add("zone is required");
@@ -1214,13 +1214,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<InstanceList> list(String project, String zone, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<InstanceList> list(core.String project, core.String zone, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -1262,13 +1262,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> setMetadata(Metadata request, String project, String zone, String instance, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> setMetadata(Metadata request, core.String project, core.String zone, core.String instance, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/setMetadata";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
@@ -1309,13 +1309,13 @@ class InstancesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> setTags(Tags request, String project, String zone, String instance, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> setTags(Tags request, core.String project, core.String zone, core.String instance, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/instances/{instance}/setTags";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (instance == null) paramErrors.add("instance is required");
     if (instance != null) urlParams["instance"] = instance;
     if (project == null) paramErrors.add("project is required");
@@ -1358,13 +1358,13 @@ class KernelsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Kernel> get(String project, String kernel, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Kernel> get(core.String project, core.String kernel, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/kernels/{kernel}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (kernel == null) paramErrors.add("kernel is required");
     if (kernel != null) urlParams["kernel"] = kernel;
     if (project == null) paramErrors.add("project is required");
@@ -1406,13 +1406,13 @@ class KernelsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<KernelList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<KernelList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/kernels";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -1454,13 +1454,13 @@ class MachineTypesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<MachineType> get(String project, String machineType, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<MachineType> get(core.String project, core.String machineType, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/machineTypes/{machineType}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (machineType == null) paramErrors.add("machineType is required");
     if (machineType != null) urlParams["machineType"] = machineType;
     if (project == null) paramErrors.add("project is required");
@@ -1502,13 +1502,13 @@ class MachineTypesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<MachineTypeList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<MachineTypeList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/machineTypes";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -1550,13 +1550,13 @@ class NetworksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> delete(String project, String network, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> delete(core.String project, core.String network, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/networks/{network}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (network == null) paramErrors.add("network is required");
     if (network != null) urlParams["network"] = network;
     if (project == null) paramErrors.add("project is required");
@@ -1591,13 +1591,13 @@ class NetworksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Network> get(String project, String network, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Network> get(core.String project, core.String network, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/networks/{network}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (network == null) paramErrors.add("network is required");
     if (network != null) urlParams["network"] = network;
     if (project == null) paramErrors.add("project is required");
@@ -1632,13 +1632,13 @@ class NetworksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> insert(Network request, String project, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> insert(Network request, core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/networks";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (optParams != null) {
@@ -1678,13 +1678,13 @@ class NetworksResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<NetworkList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<NetworkList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/networks";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -1724,13 +1724,13 @@ class ProjectsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Project> get(String project, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Project> get(core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (optParams != null) {
@@ -1763,13 +1763,13 @@ class ProjectsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> setCommonInstanceMetadata(Metadata request, String project, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> setCommonInstanceMetadata(Metadata request, core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/setCommonInstanceMetadata";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (optParams != null) {
@@ -1808,13 +1808,13 @@ class SnapshotsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> delete(String project, String snapshot, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> delete(core.String project, core.String snapshot, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/snapshots/{snapshot}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (snapshot == null) paramErrors.add("snapshot is required");
@@ -1849,13 +1849,13 @@ class SnapshotsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Snapshot> get(String project, String snapshot, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Snapshot> get(core.String project, core.String snapshot, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/snapshots/{snapshot}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (snapshot == null) paramErrors.add("snapshot is required");
@@ -1890,13 +1890,13 @@ class SnapshotsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> insert(Snapshot request, String project, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> insert(Snapshot request, core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/snapshots";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (optParams != null) {
@@ -1936,13 +1936,13 @@ class SnapshotsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<SnapshotList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<SnapshotList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/global/snapshots";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -1986,13 +1986,13 @@ class ZoneOperationsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Map> delete(String project, String zone, String operation, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<core.Map> delete(core.String project, core.String zone, core.String operation, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/operations/{operation}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (operation == null) paramErrors.add("operation is required");
     if (operation != null) urlParams["operation"] = operation;
     if (project == null) paramErrors.add("project is required");
@@ -2031,13 +2031,13 @@ class ZoneOperationsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Operation> get(String project, String zone, String operation, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Operation> get(core.String project, core.String zone, core.String operation, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/operations/{operation}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (operation == null) paramErrors.add("operation is required");
     if (operation != null) urlParams["operation"] = operation;
     if (project == null) paramErrors.add("project is required");
@@ -2083,13 +2083,13 @@ class ZoneOperationsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<OperationList> list(String project, String zone, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<OperationList> list(core.String project, core.String zone, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}/operations";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -2133,13 +2133,13 @@ class ZonesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Zone> get(String project, String zone, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Zone> get(core.String project, core.String zone, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones/{zone}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (project == null) paramErrors.add("project is required");
     if (project != null) urlParams["project"] = project;
     if (zone == null) paramErrors.add("zone is required");
@@ -2181,13 +2181,13 @@ class ZonesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<ZoneList> list(String project, {String filter, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<ZoneList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "{project}/zones";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (filter != null) queryParams["filter"] = filter;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
