@@ -4,30 +4,30 @@ part of compute_v1beta14_api_console;
 /** API for the Google Compute Engine service. */
 class Compute extends ConsoleClient {
 
-  DisksResource _disks;
-  DisksResource get disks => _disks;
-  FirewallsResource _firewalls;
-  FirewallsResource get firewalls => _firewalls;
-  GlobalOperationsResource _globalOperations;
-  GlobalOperationsResource get globalOperations => _globalOperations;
-  ImagesResource _images;
-  ImagesResource get images => _images;
-  InstancesResource _instances;
-  InstancesResource get instances => _instances;
-  KernelsResource _kernels;
-  KernelsResource get kernels => _kernels;
-  MachineTypesResource _machineTypes;
-  MachineTypesResource get machineTypes => _machineTypes;
-  NetworksResource _networks;
-  NetworksResource get networks => _networks;
-  ProjectsResource _projects;
-  ProjectsResource get projects => _projects;
-  SnapshotsResource _snapshots;
-  SnapshotsResource get snapshots => _snapshots;
-  ZoneOperationsResource _zoneOperations;
-  ZoneOperationsResource get zoneOperations => _zoneOperations;
-  ZonesResource _zones;
-  ZonesResource get zones => _zones;
+  DisksResource_ _disks;
+  DisksResource_ get disks => _disks;
+  FirewallsResource_ _firewalls;
+  FirewallsResource_ get firewalls => _firewalls;
+  GlobalOperationsResource_ _globalOperations;
+  GlobalOperationsResource_ get globalOperations => _globalOperations;
+  ImagesResource_ _images;
+  ImagesResource_ get images => _images;
+  InstancesResource_ _instances;
+  InstancesResource_ get instances => _instances;
+  KernelsResource_ _kernels;
+  KernelsResource_ get kernels => _kernels;
+  MachineTypesResource_ _machineTypes;
+  MachineTypesResource_ get machineTypes => _machineTypes;
+  NetworksResource_ _networks;
+  NetworksResource_ get networks => _networks;
+  ProjectsResource_ _projects;
+  ProjectsResource_ get projects => _projects;
+  SnapshotsResource_ _snapshots;
+  SnapshotsResource_ get snapshots => _snapshots;
+  ZoneOperationsResource_ _zoneOperations;
+  ZoneOperationsResource_ get zoneOperations => _zoneOperations;
+  ZonesResource_ _zones;
+  ZonesResource_ get zones => _zones;
 
   /** OAuth Scope2: View and manage your Google Compute Engine resources */
   static const core.String COMPUTE_SCOPE = "https://www.googleapis.com/auth/compute";
@@ -90,17 +90,17 @@ class Compute extends ConsoleClient {
   Compute([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/compute/v1beta14/projects/";
     rootUrl = "https://www.googleapis.com:443/";
-    _disks = new DisksResource(this);
-    _firewalls = new FirewallsResource(this);
-    _globalOperations = new GlobalOperationsResource(this);
-    _images = new ImagesResource(this);
-    _instances = new InstancesResource(this);
-    _kernels = new KernelsResource(this);
-    _machineTypes = new MachineTypesResource(this);
-    _networks = new NetworksResource(this);
-    _projects = new ProjectsResource(this);
-    _snapshots = new SnapshotsResource(this);
-    _zoneOperations = new ZoneOperationsResource(this);
-    _zones = new ZonesResource(this);
+    _disks = new DisksResource_(this);
+    _firewalls = new FirewallsResource_(this);
+    _globalOperations = new GlobalOperationsResource_(this);
+    _images = new ImagesResource_(this);
+    _instances = new InstancesResource_(this);
+    _kernels = new KernelsResource_(this);
+    _machineTypes = new MachineTypesResource_(this);
+    _networks = new NetworksResource_(this);
+    _projects = new ProjectsResource_(this);
+    _snapshots = new SnapshotsResource_(this);
+    _zoneOperations = new ZoneOperationsResource_(this);
+    _zones = new ZonesResource_(this);
   }
 }

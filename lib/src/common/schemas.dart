@@ -552,6 +552,7 @@ class FirewallAllowed {
   core.String IPProtocol;
 
   /** An optional list of ports which are allowed. It is an error to specify this for any protocol that isn't UDP or TCP. Each entry must be either an integer or a range. If not specified, connections through any port are allowed.
+
 Example inputs include: ["22"], ["80","443"] and ["12345-12349"]. */
   core.List<core.String> ports;
 
@@ -1509,13 +1510,13 @@ class MachineTypeList {
   /** The machine type resources. */
   core.List<MachineType> items;
 
-  /** Type of resource. */
+  /** Type of the resource. */
   core.String kind;
 
   /** A token used to continue a truncated list request (output only). */
   core.String nextPageToken;
 
-  /** Server defined URL for this resource (output only). */
+  /** Server defined URL for the resource (output only). */
   core.String selfLink;
 
   /** Create new MachineTypeList from JSON data */
