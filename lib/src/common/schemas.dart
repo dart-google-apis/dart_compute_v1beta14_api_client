@@ -229,7 +229,7 @@ class Disk {
   core.String selfLink;
 
   /** Size of the persistent disk, specified in GB. This parameter is optional when creating a disk from a disk image or a snapshot, otherwise it is required. */
-  core.String sizeGb;
+  core.int sizeGb;
 
   /** The source snapshot used to create this disk. Once the source snapshot has been deleted from the system, this field will be cleared, and will not be set even if a snapshot with the same name has been re-created. */
   core.String sourceSnapshot;
@@ -893,7 +893,7 @@ class ImageList {
 /** An instance resource. */
 class Instance {
 
-  /** Reserved for future use. */
+  /** Allows this instance to send packets with source IP addresses other than its own and receive packets with destination IP addresses other than its own. If this instance will be used as an IP gateway or it will be set as the next-hop in a Route resource, say true. If unsure, leave this set to false. */
   core.bool canIpForward;
 
   /** Creation timestamp in RFC3339 text format (output only). */
@@ -929,7 +929,7 @@ class Instance {
   /** Array of configurations for this interface. This specifies how this interface is configured to interact with other network services, such as connecting to the internet. Currently, ONE_TO_ONE_NAT is the only access config supported. If there are no accessConfigs specified, then this instance will have no external internet access. */
   core.List<NetworkInterface> networkInterfaces;
 
-  /** Server defined URL for the resource (output only). */
+  /** Server defined URL for this resource (output only). */
   core.String selfLink;
 
   /** A list of service accounts each with specified scopes, for which access tokens are to be made available to the instance through metadata queries. */
@@ -1349,7 +1349,7 @@ class MachineType {
   core.int maximumPersistentDisks;
 
   /** Maximum total persistent disks size (GB) allowed. */
-  core.String maximumPersistentDisksSizeGb;
+  core.int maximumPersistentDisksSizeGb;
 
   /** Physical memory assigned to the instance, defined in MB. */
   core.int memoryMb;
@@ -2503,6 +2503,229 @@ class Quota {
 
 }
 
+/** The route resource. A Route is a rule that specifies how certain packets should be handled by the virtual network. Routes are associated with VMs by tag and the set of Routes for a particular VM is called its routing table. For each packet leaving a VM, the system searches that VM's routing table for a single best matching Route. Routes match packets by destination IP address, preferring smaller or more specific ranges over larger ones. If there is a tie, the system selects the Route with the smallest priority value. If there is still a tie, it uses the layer three and four packet headers to select just one of the remaining matching Routes. The packet is then forwarded as specified by the next_hop field of the winning Route -- either to another VM destination, a VM gateway or a GCE operated gateway. Packets that do not match any Route in the sending VM's routing table will be dropped. */
+class Route {
+
+  /** Creation timestamp in RFC3339 text format (output only). */
+  core.String creationTimestamp;
+
+  /** An optional textual description of the resource; provided by the client when the resource is created. */
+  core.String description;
+
+  /** Which packets does this route apply to? */
+  core.String destRange;
+
+  /** Unique identifier for the resource; defined by the server (output only). */
+  core.String id;
+
+  /** Type of the resource. */
+  core.String kind;
+
+  /** Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. */
+  core.String name;
+
+  /** URL of the network to which this route is applied; provided by the client when the route is created. */
+  core.String network;
+
+  /** The URL to a gateway that should handle matching packets. */
+  core.String nextHopGateway;
+
+  /** The URL to an instance that should handle matching packets. */
+  core.String nextHopInstance;
+
+  /** The network IP address of an instance that should handle matching packets. */
+  core.String nextHopIp;
+
+  /** The URL of the local network if it should handle matching packets. */
+  core.String nextHopNetwork;
+
+  /** Breaks ties between Routes of equal specificity. Routes with smaller values win when tied with routes with larger values. */
+  core.int priority;
+
+  /** Server defined URL for the resource (output only). */
+  core.String selfLink;
+
+  /** A list of instance tags to which this route applies. */
+  core.List<core.String> tags;
+
+  /** Create new Route from JSON data */
+  Route.fromJson(core.Map json) {
+    if (json.containsKey("creationTimestamp")) {
+      creationTimestamp = json["creationTimestamp"];
+    }
+    if (json.containsKey("description")) {
+      description = json["description"];
+    }
+    if (json.containsKey("destRange")) {
+      destRange = json["destRange"];
+    }
+    if (json.containsKey("id")) {
+      id = json["id"];
+    }
+    if (json.containsKey("kind")) {
+      kind = json["kind"];
+    }
+    if (json.containsKey("name")) {
+      name = json["name"];
+    }
+    if (json.containsKey("network")) {
+      network = json["network"];
+    }
+    if (json.containsKey("nextHopGateway")) {
+      nextHopGateway = json["nextHopGateway"];
+    }
+    if (json.containsKey("nextHopInstance")) {
+      nextHopInstance = json["nextHopInstance"];
+    }
+    if (json.containsKey("nextHopIp")) {
+      nextHopIp = json["nextHopIp"];
+    }
+    if (json.containsKey("nextHopNetwork")) {
+      nextHopNetwork = json["nextHopNetwork"];
+    }
+    if (json.containsKey("priority")) {
+      priority = json["priority"];
+    }
+    if (json.containsKey("selfLink")) {
+      selfLink = json["selfLink"];
+    }
+    if (json.containsKey("tags")) {
+      tags = [];
+      json["tags"].forEach((item) {
+        tags.add(item);
+      });
+    }
+  }
+
+  /** Create JSON Object for Route */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (creationTimestamp != null) {
+      output["creationTimestamp"] = creationTimestamp;
+    }
+    if (description != null) {
+      output["description"] = description;
+    }
+    if (destRange != null) {
+      output["destRange"] = destRange;
+    }
+    if (id != null) {
+      output["id"] = id;
+    }
+    if (kind != null) {
+      output["kind"] = kind;
+    }
+    if (name != null) {
+      output["name"] = name;
+    }
+    if (network != null) {
+      output["network"] = network;
+    }
+    if (nextHopGateway != null) {
+      output["nextHopGateway"] = nextHopGateway;
+    }
+    if (nextHopInstance != null) {
+      output["nextHopInstance"] = nextHopInstance;
+    }
+    if (nextHopIp != null) {
+      output["nextHopIp"] = nextHopIp;
+    }
+    if (nextHopNetwork != null) {
+      output["nextHopNetwork"] = nextHopNetwork;
+    }
+    if (priority != null) {
+      output["priority"] = priority;
+    }
+    if (selfLink != null) {
+      output["selfLink"] = selfLink;
+    }
+    if (tags != null) {
+      output["tags"] = new core.List();
+      tags.forEach((item) {
+        output["tags"].add(item);
+      });
+    }
+
+    return output;
+  }
+
+  /** Return String representation of Route */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** Contains a list of route resources. */
+class RouteList {
+
+  /** Unique identifier for the resource; defined by the server (output only). */
+  core.String id;
+
+  /** The route resources. */
+  core.List<Route> items;
+
+  /** Type of resource. */
+  core.String kind;
+
+  /** A token used to continue a truncated list request (output only). */
+  core.String nextPageToken;
+
+  /** Server defined URL for this resource (output only). */
+  core.String selfLink;
+
+  /** Create new RouteList from JSON data */
+  RouteList.fromJson(core.Map json) {
+    if (json.containsKey("id")) {
+      id = json["id"];
+    }
+    if (json.containsKey("items")) {
+      items = [];
+      json["items"].forEach((item) {
+        items.add(new Route.fromJson(item));
+      });
+    }
+    if (json.containsKey("kind")) {
+      kind = json["kind"];
+    }
+    if (json.containsKey("nextPageToken")) {
+      nextPageToken = json["nextPageToken"];
+    }
+    if (json.containsKey("selfLink")) {
+      selfLink = json["selfLink"];
+    }
+  }
+
+  /** Create JSON Object for RouteList */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (id != null) {
+      output["id"] = id;
+    }
+    if (items != null) {
+      output["items"] = new core.List();
+      items.forEach((item) {
+        output["items"].add(item.toJson());
+      });
+    }
+    if (kind != null) {
+      output["kind"] = kind;
+    }
+    if (nextPageToken != null) {
+      output["nextPageToken"] = nextPageToken;
+    }
+    if (selfLink != null) {
+      output["selfLink"] = selfLink;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of RouteList */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 /** An instance serial console output. */
 class SerialPortOutput {
 
@@ -2604,7 +2827,7 @@ class Snapshot {
   core.String description;
 
   /** Size of the persistent disk snapshot, specified in GB (output only). */
-  core.String diskSizeGb;
+  core.int diskSizeGb;
 
   /** Unique identifier for the resource; defined by the server (output only). */
   core.String id;

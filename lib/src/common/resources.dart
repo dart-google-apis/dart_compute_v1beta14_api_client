@@ -1794,6 +1794,182 @@ class ProjectsResource_ extends Resource {
   }
 }
 
+class RoutesResource_ extends Resource {
+
+  RoutesResource_(Client client) : super(client) {
+  }
+
+  /**
+   * Deletes the specified route resource.
+   *
+   * [project] - Name of the project scoping this request.
+   *
+   * [route] - Name of the route resource to delete.
+   *
+   * [optParams] - Additional query parameters
+   */
+  async.Future<Operation> delete(core.String project, core.String route, {core.Map optParams}) {
+    var completer = new async.Completer();
+    var url = "{project}/global/routes/{route}";
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
+
+    var paramErrors = new core.List();
+    if (project == null) paramErrors.add("project is required");
+    if (project != null) urlParams["project"] = project;
+    if (route == null) paramErrors.add("route is required");
+    if (route != null) urlParams["route"] = route;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "DELETE", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new Operation.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * Returns the specified route resource.
+   *
+   * [project] - Name of the project scoping this request.
+   *
+   * [route] - Name of the route resource to return.
+   *
+   * [optParams] - Additional query parameters
+   */
+  async.Future<Route> get(core.String project, core.String route, {core.Map optParams}) {
+    var completer = new async.Completer();
+    var url = "{project}/global/routes/{route}";
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
+
+    var paramErrors = new core.List();
+    if (project == null) paramErrors.add("project is required");
+    if (project != null) urlParams["project"] = project;
+    if (route == null) paramErrors.add("route is required");
+    if (route != null) urlParams["route"] = route;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new Route.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * Creates a route resource in the specified project using the data included in the request.
+   *
+   * [request] - Route to send in this request
+   *
+   * [project] - Name of the project scoping this request.
+   *
+   * [optParams] - Additional query parameters
+   */
+  async.Future<Operation> insert(Route request, core.String project, {core.Map optParams}) {
+    var completer = new async.Completer();
+    var url = "{project}/global/routes";
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
+
+    var paramErrors = new core.List();
+    if (project == null) paramErrors.add("project is required");
+    if (project != null) urlParams["project"] = project;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new Operation.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * Retrieves the list of route resources available to the specified project.
+   *
+   * [project] - Name of the project scoping this request.
+   *
+   * [filter] - Optional. Filter expression for filtering listed resources.
+   *
+   * [maxResults] - Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   *   Default: 100
+   *   Minimum: 0
+   *   Maximum: 100
+   *
+   * [pageToken] - Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+   *
+   * [optParams] - Additional query parameters
+   */
+  async.Future<RouteList> list(core.String project, {core.String filter, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
+    var url = "{project}/global/routes";
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
+
+    var paramErrors = new core.List();
+    if (filter != null) queryParams["filter"] = filter;
+    if (maxResults != null) queryParams["maxResults"] = maxResults;
+    if (pageToken != null) queryParams["pageToken"] = pageToken;
+    if (project == null) paramErrors.add("project is required");
+    if (project != null) urlParams["project"] = project;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new RouteList.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+}
+
 class SnapshotsResource_ extends Resource {
 
   SnapshotsResource_(Client client) : super(client) {

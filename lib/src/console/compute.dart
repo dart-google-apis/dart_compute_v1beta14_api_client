@@ -22,6 +22,8 @@ class Compute extends ConsoleClient {
   NetworksResource_ get networks => _networks;
   ProjectsResource_ _projects;
   ProjectsResource_ get projects => _projects;
+  RoutesResource_ _routes;
+  RoutesResource_ get routes => _routes;
   SnapshotsResource_ _snapshots;
   SnapshotsResource_ get snapshots => _snapshots;
   ZoneOperationsResource_ _zoneOperations;
@@ -89,7 +91,7 @@ class Compute extends ConsoleClient {
 
   Compute([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/compute/v1beta14/projects/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _disks = new DisksResource_(this);
     _firewalls = new FirewallsResource_(this);
     _globalOperations = new GlobalOperationsResource_(this);
@@ -99,6 +101,7 @@ class Compute extends ConsoleClient {
     _machineTypes = new MachineTypesResource_(this);
     _networks = new NetworksResource_(this);
     _projects = new ProjectsResource_(this);
+    _routes = new RoutesResource_(this);
     _snapshots = new SnapshotsResource_(this);
     _zoneOperations = new ZoneOperationsResource_(this);
     _zones = new ZonesResource_(this);
