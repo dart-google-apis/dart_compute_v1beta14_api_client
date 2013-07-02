@@ -267,7 +267,11 @@ class Disk {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("sizeGb")) {
-      sizeGb = json["sizeGb"];
+      if(json["sizeGb"] is core.String){
+        sizeGb = core.int.parse(json["sizeGb"]);
+      }else{
+        sizeGb = json["sizeGb"];
+      }
     }
     if (json.containsKey("sourceSnapshot")) {
       sourceSnapshot = json["sourceSnapshot"];
@@ -1399,7 +1403,11 @@ class MachineType {
       maximumPersistentDisks = json["maximumPersistentDisks"];
     }
     if (json.containsKey("maximumPersistentDisksSizeGb")) {
-      maximumPersistentDisksSizeGb = json["maximumPersistentDisksSizeGb"];
+      if(json["maximumPersistentDisksSizeGb"] is core.String){
+        maximumPersistentDisksSizeGb = core.int.parse(json["maximumPersistentDisksSizeGb"]);
+      }else{
+        maximumPersistentDisksSizeGb = json["maximumPersistentDisksSizeGb"];
+      }
     }
     if (json.containsKey("memoryMb")) {
       memoryMb = json["memoryMb"];
@@ -2859,7 +2867,11 @@ class Snapshot {
       description = json["description"];
     }
     if (json.containsKey("diskSizeGb")) {
-      diskSizeGb = json["diskSizeGb"];
+      if(json["diskSizeGb"] is core.String){
+        diskSizeGb = core.int.parse(json["diskSizeGb"]);
+      }else{
+        diskSizeGb = json["diskSizeGb"];
+      }
     }
     if (json.containsKey("id")) {
       id = json["id"];
