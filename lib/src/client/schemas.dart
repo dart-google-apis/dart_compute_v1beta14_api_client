@@ -1,4 +1,4 @@
-part of compute_v1beta14_api_client;
+part of compute_v1beta14_api;
 
 /** An access configuration attached to an instance's network interface. */
 class AccessConfig {
@@ -267,11 +267,7 @@ class Disk {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("sizeGb")) {
-      if(json["sizeGb"] is core.String){
-        sizeGb = core.int.parse(json["sizeGb"]);
-      }else{
-        sizeGb = json["sizeGb"];
-      }
+      sizeGb = (json["sizeGb"] is core.String) ? core.int.parse(json["sizeGb"]) : json["sizeGb"];
     }
     if (json.containsKey("sourceSnapshot")) {
       sourceSnapshot = json["sourceSnapshot"];
@@ -360,10 +356,7 @@ class DiskList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Disk.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Disk.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -384,10 +377,7 @@ class DiskList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -446,10 +436,7 @@ class Firewall {
   /** Create new Firewall from JSON data */
   Firewall.fromJson(core.Map json) {
     if (json.containsKey("allowed")) {
-      allowed = [];
-      json["allowed"].forEach((item) {
-        allowed.add(new FirewallAllowed.fromJson(item));
-      });
+      allowed = json["allowed"].map((allowedItem) => new FirewallAllowed.fromJson(allowedItem)).toList();
     }
     if (json.containsKey("creationTimestamp")) {
       creationTimestamp = json["creationTimestamp"];
@@ -473,22 +460,13 @@ class Firewall {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("sourceRanges")) {
-      sourceRanges = [];
-      json["sourceRanges"].forEach((item) {
-        sourceRanges.add(item);
-      });
+      sourceRanges = json["sourceRanges"].toList();
     }
     if (json.containsKey("sourceTags")) {
-      sourceTags = [];
-      json["sourceTags"].forEach((item) {
-        sourceTags.add(item);
-      });
+      sourceTags = json["sourceTags"].toList();
     }
     if (json.containsKey("targetTags")) {
-      targetTags = [];
-      json["targetTags"].forEach((item) {
-        targetTags.add(item);
-      });
+      targetTags = json["targetTags"].toList();
     }
   }
 
@@ -497,10 +475,7 @@ class Firewall {
     var output = new core.Map();
 
     if (allowed != null) {
-      output["allowed"] = new core.List();
-      allowed.forEach((item) {
-        output["allowed"].add(item.toJson());
-      });
+      output["allowed"] = allowed.map((allowedItem) => allowedItem.toJson()).toList();
     }
     if (creationTimestamp != null) {
       output["creationTimestamp"] = creationTimestamp;
@@ -524,22 +499,13 @@ class Firewall {
       output["selfLink"] = selfLink;
     }
     if (sourceRanges != null) {
-      output["sourceRanges"] = new core.List();
-      sourceRanges.forEach((item) {
-        output["sourceRanges"].add(item);
-      });
+      output["sourceRanges"] = sourceRanges.toList();
     }
     if (sourceTags != null) {
-      output["sourceTags"] = new core.List();
-      sourceTags.forEach((item) {
-        output["sourceTags"].add(item);
-      });
+      output["sourceTags"] = sourceTags.toList();
     }
     if (targetTags != null) {
-      output["targetTags"] = new core.List();
-      targetTags.forEach((item) {
-        output["targetTags"].add(item);
-      });
+      output["targetTags"] = targetTags.toList();
     }
 
     return output;
@@ -566,10 +532,7 @@ Example inputs include: ["22"], ["80","443"] and ["12345-12349"]. */
       IPProtocol = json["IPProtocol"];
     }
     if (json.containsKey("ports")) {
-      ports = [];
-      json["ports"].forEach((item) {
-        ports.add(item);
-      });
+      ports = json["ports"].toList();
     }
   }
 
@@ -581,10 +544,7 @@ Example inputs include: ["22"], ["80","443"] and ["12345-12349"]. */
       output["IPProtocol"] = IPProtocol;
     }
     if (ports != null) {
-      output["ports"] = new core.List();
-      ports.forEach((item) {
-        output["ports"].add(item);
-      });
+      output["ports"] = ports.toList();
     }
 
     return output;
@@ -619,10 +579,7 @@ class FirewallList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Firewall.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Firewall.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -643,10 +600,7 @@ class FirewallList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -847,10 +801,7 @@ class ImageList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Image.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Image.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -871,10 +822,7 @@ class ImageList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -963,10 +911,7 @@ class Instance {
       description = json["description"];
     }
     if (json.containsKey("disks")) {
-      disks = [];
-      json["disks"].forEach((item) {
-        disks.add(new AttachedDisk.fromJson(item));
-      });
+      disks = json["disks"].map((disksItem) => new AttachedDisk.fromJson(disksItem)).toList();
     }
     if (json.containsKey("id")) {
       id = json["id"];
@@ -990,19 +935,13 @@ class Instance {
       name = json["name"];
     }
     if (json.containsKey("networkInterfaces")) {
-      networkInterfaces = [];
-      json["networkInterfaces"].forEach((item) {
-        networkInterfaces.add(new NetworkInterface.fromJson(item));
-      });
+      networkInterfaces = json["networkInterfaces"].map((networkInterfacesItem) => new NetworkInterface.fromJson(networkInterfacesItem)).toList();
     }
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("serviceAccounts")) {
-      serviceAccounts = [];
-      json["serviceAccounts"].forEach((item) {
-        serviceAccounts.add(new ServiceAccount.fromJson(item));
-      });
+      serviceAccounts = json["serviceAccounts"].map((serviceAccountsItem) => new ServiceAccount.fromJson(serviceAccountsItem)).toList();
     }
     if (json.containsKey("status")) {
       status = json["status"];
@@ -1032,10 +971,7 @@ class Instance {
       output["description"] = description;
     }
     if (disks != null) {
-      output["disks"] = new core.List();
-      disks.forEach((item) {
-        output["disks"].add(item.toJson());
-      });
+      output["disks"] = disks.map((disksItem) => disksItem.toJson()).toList();
     }
     if (id != null) {
       output["id"] = id;
@@ -1059,19 +995,13 @@ class Instance {
       output["name"] = name;
     }
     if (networkInterfaces != null) {
-      output["networkInterfaces"] = new core.List();
-      networkInterfaces.forEach((item) {
-        output["networkInterfaces"].add(item.toJson());
-      });
+      output["networkInterfaces"] = networkInterfaces.map((networkInterfacesItem) => networkInterfacesItem.toJson()).toList();
     }
     if (selfLink != null) {
       output["selfLink"] = selfLink;
     }
     if (serviceAccounts != null) {
-      output["serviceAccounts"] = new core.List();
-      serviceAccounts.forEach((item) {
-        output["serviceAccounts"].add(item.toJson());
-      });
+      output["serviceAccounts"] = serviceAccounts.map((serviceAccountsItem) => serviceAccountsItem.toJson()).toList();
     }
     if (status != null) {
       output["status"] = status;
@@ -1118,10 +1048,7 @@ class InstanceList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Instance.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Instance.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1142,10 +1069,7 @@ class InstanceList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1272,10 +1196,7 @@ class KernelList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Kernel.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Kernel.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1296,10 +1217,7 @@ class KernelList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1367,10 +1285,7 @@ class MachineType {
   /** Create new MachineType from JSON data */
   MachineType.fromJson(core.Map json) {
     if (json.containsKey("availableZone")) {
-      availableZone = [];
-      json["availableZone"].forEach((item) {
-        availableZone.add(item);
-      });
+      availableZone = json["availableZone"].toList();
     }
     if (json.containsKey("creationTimestamp")) {
       creationTimestamp = json["creationTimestamp"];
@@ -1382,10 +1297,7 @@ class MachineType {
       description = json["description"];
     }
     if (json.containsKey("ephemeralDisks")) {
-      ephemeralDisks = [];
-      json["ephemeralDisks"].forEach((item) {
-        ephemeralDisks.add(new MachineTypeEphemeralDisks.fromJson(item));
-      });
+      ephemeralDisks = json["ephemeralDisks"].map((ephemeralDisksItem) => new MachineTypeEphemeralDisks.fromJson(ephemeralDisksItem)).toList();
     }
     if (json.containsKey("guestCpus")) {
       guestCpus = json["guestCpus"];
@@ -1403,11 +1315,7 @@ class MachineType {
       maximumPersistentDisks = json["maximumPersistentDisks"];
     }
     if (json.containsKey("maximumPersistentDisksSizeGb")) {
-      if(json["maximumPersistentDisksSizeGb"] is core.String){
-        maximumPersistentDisksSizeGb = core.int.parse(json["maximumPersistentDisksSizeGb"]);
-      }else{
-        maximumPersistentDisksSizeGb = json["maximumPersistentDisksSizeGb"];
-      }
+      maximumPersistentDisksSizeGb = (json["maximumPersistentDisksSizeGb"] is core.String) ? core.int.parse(json["maximumPersistentDisksSizeGb"]) : json["maximumPersistentDisksSizeGb"];
     }
     if (json.containsKey("memoryMb")) {
       memoryMb = json["memoryMb"];
@@ -1425,10 +1333,7 @@ class MachineType {
     var output = new core.Map();
 
     if (availableZone != null) {
-      output["availableZone"] = new core.List();
-      availableZone.forEach((item) {
-        output["availableZone"].add(item);
-      });
+      output["availableZone"] = availableZone.toList();
     }
     if (creationTimestamp != null) {
       output["creationTimestamp"] = creationTimestamp;
@@ -1440,10 +1345,7 @@ class MachineType {
       output["description"] = description;
     }
     if (ephemeralDisks != null) {
-      output["ephemeralDisks"] = new core.List();
-      ephemeralDisks.forEach((item) {
-        output["ephemeralDisks"].add(item.toJson());
-      });
+      output["ephemeralDisks"] = ephemeralDisks.map((ephemeralDisksItem) => ephemeralDisksItem.toJson()).toList();
     }
     if (guestCpus != null) {
       output["guestCpus"] = guestCpus;
@@ -1533,10 +1435,7 @@ class MachineTypeList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new MachineType.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new MachineType.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1557,10 +1456,7 @@ class MachineTypeList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1598,10 +1494,7 @@ class Metadata {
       fingerprint = json["fingerprint"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new MetadataItems.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new MetadataItems.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1616,10 +1509,7 @@ class Metadata {
       output["fingerprint"] = fingerprint;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1780,10 +1670,7 @@ class NetworkInterface {
   /** Create new NetworkInterface from JSON data */
   NetworkInterface.fromJson(core.Map json) {
     if (json.containsKey("accessConfigs")) {
-      accessConfigs = [];
-      json["accessConfigs"].forEach((item) {
-        accessConfigs.add(new AccessConfig.fromJson(item));
-      });
+      accessConfigs = json["accessConfigs"].map((accessConfigsItem) => new AccessConfig.fromJson(accessConfigsItem)).toList();
     }
     if (json.containsKey("name")) {
       name = json["name"];
@@ -1801,10 +1688,7 @@ class NetworkInterface {
     var output = new core.Map();
 
     if (accessConfigs != null) {
-      output["accessConfigs"] = new core.List();
-      accessConfigs.forEach((item) {
-        output["accessConfigs"].add(item.toJson());
-      });
+      output["accessConfigs"] = accessConfigs.map((accessConfigsItem) => accessConfigsItem.toJson()).toList();
     }
     if (name != null) {
       output["name"] = name;
@@ -1848,10 +1732,7 @@ class NetworkList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Network.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Network.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1872,10 +1753,7 @@ class NetworkList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -2021,10 +1899,7 @@ class Operation {
       user = json["user"];
     }
     if (json.containsKey("warnings")) {
-      warnings = [];
-      json["warnings"].forEach((item) {
-        warnings.add(new OperationWarnings.fromJson(item));
-      });
+      warnings = json["warnings"].map((warningsItem) => new OperationWarnings.fromJson(warningsItem)).toList();
     }
     if (json.containsKey("zone")) {
       zone = json["zone"];
@@ -2093,10 +1968,7 @@ class Operation {
       output["user"] = user;
     }
     if (warnings != null) {
-      output["warnings"] = new core.List();
-      warnings.forEach((item) {
-        output["warnings"].add(item.toJson());
-      });
+      output["warnings"] = warnings.map((warningsItem) => warningsItem.toJson()).toList();
     }
     if (zone != null) {
       output["zone"] = zone;
@@ -2110,95 +1982,6 @@ class Operation {
 
 }
 
-class OperationWarnings {
-
-  /** The warning type identifier for this warning. */
-  core.String code;
-
-  /** Metadata for this warning in 'key: value' format. */
-  core.List<OperationWarningsData> data;
-
-  /** Optional human-readable details for this warning. */
-  core.String message;
-
-  /** Create new OperationWarnings from JSON data */
-  OperationWarnings.fromJson(core.Map json) {
-    if (json.containsKey("code")) {
-      code = json["code"];
-    }
-    if (json.containsKey("data")) {
-      data = [];
-      json["data"].forEach((item) {
-        data.add(new OperationWarningsData.fromJson(item));
-      });
-    }
-    if (json.containsKey("message")) {
-      message = json["message"];
-    }
-  }
-
-  /** Create JSON Object for OperationWarnings */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (code != null) {
-      output["code"] = code;
-    }
-    if (data != null) {
-      output["data"] = new core.List();
-      data.forEach((item) {
-        output["data"].add(item.toJson());
-      });
-    }
-    if (message != null) {
-      output["message"] = message;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of OperationWarnings */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class OperationWarningsData {
-
-  /** A key for the warning data. */
-  core.String key;
-
-  /** A warning data value corresponding to the key. */
-  core.String value;
-
-  /** Create new OperationWarningsData from JSON data */
-  OperationWarningsData.fromJson(core.Map json) {
-    if (json.containsKey("key")) {
-      key = json["key"];
-    }
-    if (json.containsKey("value")) {
-      value = json["value"];
-    }
-  }
-
-  /** Create JSON Object for OperationWarningsData */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (key != null) {
-      output["key"] = key;
-    }
-    if (value != null) {
-      output["value"] = value;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of OperationWarningsData */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
 /** If errors occurred during processing of this operation, this field will be populated (output only). */
 class OperationError {
 
@@ -2208,10 +1991,7 @@ class OperationError {
   /** Create new OperationError from JSON data */
   OperationError.fromJson(core.Map json) {
     if (json.containsKey("errors")) {
-      errors = [];
-      json["errors"].forEach((item) {
-        errors.add(new OperationErrorErrors.fromJson(item));
-      });
+      errors = json["errors"].map((errorsItem) => new OperationErrorErrors.fromJson(errorsItem)).toList();
     }
   }
 
@@ -2220,10 +2000,7 @@ class OperationError {
     var output = new core.Map();
 
     if (errors != null) {
-      output["errors"] = new core.List();
-      errors.forEach((item) {
-        output["errors"].add(item.toJson());
-      });
+      output["errors"] = errors.map((errorsItem) => errorsItem.toJson()).toList();
     }
 
     return output;
@@ -2280,6 +2057,89 @@ class OperationErrorErrors {
 
 }
 
+class OperationWarnings {
+
+  /** The warning type identifier for this warning. */
+  core.String code;
+
+  /** Metadata for this warning in 'key: value' format. */
+  core.List<OperationWarningsData> data;
+
+  /** Optional human-readable details for this warning. */
+  core.String message;
+
+  /** Create new OperationWarnings from JSON data */
+  OperationWarnings.fromJson(core.Map json) {
+    if (json.containsKey("code")) {
+      code = json["code"];
+    }
+    if (json.containsKey("data")) {
+      data = json["data"].map((dataItem) => new OperationWarningsData.fromJson(dataItem)).toList();
+    }
+    if (json.containsKey("message")) {
+      message = json["message"];
+    }
+  }
+
+  /** Create JSON Object for OperationWarnings */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (code != null) {
+      output["code"] = code;
+    }
+    if (data != null) {
+      output["data"] = data.map((dataItem) => dataItem.toJson()).toList();
+    }
+    if (message != null) {
+      output["message"] = message;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of OperationWarnings */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
+class OperationWarningsData {
+
+  /** A key for the warning data. */
+  core.String key;
+
+  /** A warning data value corresponding to the key. */
+  core.String value;
+
+  /** Create new OperationWarningsData from JSON data */
+  OperationWarningsData.fromJson(core.Map json) {
+    if (json.containsKey("key")) {
+      key = json["key"];
+    }
+    if (json.containsKey("value")) {
+      value = json["value"];
+    }
+  }
+
+  /** Create JSON Object for OperationWarningsData */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (key != null) {
+      output["key"] = key;
+    }
+    if (value != null) {
+      output["value"] = value;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of OperationWarningsData */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 /** Contains a list of operation resources. */
 class OperationList {
 
@@ -2304,10 +2164,7 @@ class OperationList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Operation.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Operation.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -2328,10 +2185,7 @@ class OperationList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -2393,10 +2247,7 @@ class Project {
       description = json["description"];
     }
     if (json.containsKey("externalIpAddresses")) {
-      externalIpAddresses = [];
-      json["externalIpAddresses"].forEach((item) {
-        externalIpAddresses.add(item);
-      });
+      externalIpAddresses = json["externalIpAddresses"].toList();
     }
     if (json.containsKey("id")) {
       id = json["id"];
@@ -2408,10 +2259,7 @@ class Project {
       name = json["name"];
     }
     if (json.containsKey("quotas")) {
-      quotas = [];
-      json["quotas"].forEach((item) {
-        quotas.add(new Quota.fromJson(item));
-      });
+      quotas = json["quotas"].map((quotasItem) => new Quota.fromJson(quotasItem)).toList();
     }
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
@@ -2432,10 +2280,7 @@ class Project {
       output["description"] = description;
     }
     if (externalIpAddresses != null) {
-      output["externalIpAddresses"] = new core.List();
-      externalIpAddresses.forEach((item) {
-        output["externalIpAddresses"].add(item);
-      });
+      output["externalIpAddresses"] = externalIpAddresses.toList();
     }
     if (id != null) {
       output["id"] = id;
@@ -2447,10 +2292,7 @@ class Project {
       output["name"] = name;
     }
     if (quotas != null) {
-      output["quotas"] = new core.List();
-      quotas.forEach((item) {
-        output["quotas"].add(item.toJson());
-      });
+      output["quotas"] = quotas.map((quotasItem) => quotasItem.toJson()).toList();
     }
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -2598,10 +2440,7 @@ class Route {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("tags")) {
-      tags = [];
-      json["tags"].forEach((item) {
-        tags.add(item);
-      });
+      tags = json["tags"].toList();
     }
   }
 
@@ -2649,10 +2488,7 @@ class Route {
       output["selfLink"] = selfLink;
     }
     if (tags != null) {
-      output["tags"] = new core.List();
-      tags.forEach((item) {
-        output["tags"].add(item);
-      });
+      output["tags"] = tags.toList();
     }
 
     return output;
@@ -2687,10 +2523,7 @@ class RouteList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Route.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Route.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -2711,10 +2544,7 @@ class RouteList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -2796,10 +2626,7 @@ class ServiceAccount {
       email = json["email"];
     }
     if (json.containsKey("scopes")) {
-      scopes = [];
-      json["scopes"].forEach((item) {
-        scopes.add(item);
-      });
+      scopes = json["scopes"].toList();
     }
   }
 
@@ -2811,10 +2638,7 @@ class ServiceAccount {
       output["email"] = email;
     }
     if (scopes != null) {
-      output["scopes"] = new core.List();
-      scopes.forEach((item) {
-        output["scopes"].add(item);
-      });
+      output["scopes"] = scopes.toList();
     }
 
     return output;
@@ -2867,11 +2691,7 @@ class Snapshot {
       description = json["description"];
     }
     if (json.containsKey("diskSizeGb")) {
-      if(json["diskSizeGb"] is core.String){
-        diskSizeGb = core.int.parse(json["diskSizeGb"]);
-      }else{
-        diskSizeGb = json["diskSizeGb"];
-      }
+      diskSizeGb = (json["diskSizeGb"] is core.String) ? core.int.parse(json["diskSizeGb"]) : json["diskSizeGb"];
     }
     if (json.containsKey("id")) {
       id = json["id"];
@@ -2963,10 +2783,7 @@ class SnapshotList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Snapshot.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Snapshot.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -2987,10 +2804,7 @@ class SnapshotList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -3025,10 +2839,7 @@ class Tags {
       fingerprint = json["fingerprint"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(item);
-      });
+      items = json["items"].toList();
     }
   }
 
@@ -3040,10 +2851,7 @@ class Tags {
       output["fingerprint"] = fingerprint;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item);
-      });
+      output["items"] = items.toList();
     }
 
     return output;
@@ -3093,10 +2901,7 @@ class Zone {
   /** Create new Zone from JSON data */
   Zone.fromJson(core.Map json) {
     if (json.containsKey("availableMachineType")) {
-      availableMachineType = [];
-      json["availableMachineType"].forEach((item) {
-        availableMachineType.add(item);
-      });
+      availableMachineType = json["availableMachineType"].toList();
     }
     if (json.containsKey("creationTimestamp")) {
       creationTimestamp = json["creationTimestamp"];
@@ -3114,19 +2919,13 @@ class Zone {
       kind = json["kind"];
     }
     if (json.containsKey("maintenanceWindows")) {
-      maintenanceWindows = [];
-      json["maintenanceWindows"].forEach((item) {
-        maintenanceWindows.add(new ZoneMaintenanceWindows.fromJson(item));
-      });
+      maintenanceWindows = json["maintenanceWindows"].map((maintenanceWindowsItem) => new ZoneMaintenanceWindows.fromJson(maintenanceWindowsItem)).toList();
     }
     if (json.containsKey("name")) {
       name = json["name"];
     }
     if (json.containsKey("quotas")) {
-      quotas = [];
-      json["quotas"].forEach((item) {
-        quotas.add(new Quota.fromJson(item));
-      });
+      quotas = json["quotas"].map((quotasItem) => new Quota.fromJson(quotasItem)).toList();
     }
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
@@ -3141,10 +2940,7 @@ class Zone {
     var output = new core.Map();
 
     if (availableMachineType != null) {
-      output["availableMachineType"] = new core.List();
-      availableMachineType.forEach((item) {
-        output["availableMachineType"].add(item);
-      });
+      output["availableMachineType"] = availableMachineType.toList();
     }
     if (creationTimestamp != null) {
       output["creationTimestamp"] = creationTimestamp;
@@ -3162,19 +2958,13 @@ class Zone {
       output["kind"] = kind;
     }
     if (maintenanceWindows != null) {
-      output["maintenanceWindows"] = new core.List();
-      maintenanceWindows.forEach((item) {
-        output["maintenanceWindows"].add(item.toJson());
-      });
+      output["maintenanceWindows"] = maintenanceWindows.map((maintenanceWindowsItem) => maintenanceWindowsItem.toJson()).toList();
     }
     if (name != null) {
       output["name"] = name;
     }
     if (quotas != null) {
-      output["quotas"] = new core.List();
-      quotas.forEach((item) {
-        output["quotas"].add(item.toJson());
-      });
+      output["quotas"] = quotas.map((quotasItem) => quotasItem.toJson()).toList();
     }
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -3270,10 +3060,7 @@ class ZoneList {
       id = json["id"];
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Zone.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Zone.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -3294,10 +3081,7 @@ class ZoneList {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -3317,3 +3101,16 @@ class ZoneList {
 
 }
 
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
+}

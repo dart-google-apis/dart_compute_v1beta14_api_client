@@ -1,9 +1,11 @@
-part of compute_v1beta14_api_client;
+part of compute_v1beta14_api;
 
-class DisksResource_ extends Resource {
+class DisksResource_ {
 
-  DisksResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  DisksResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified persistent disk resource.
@@ -179,10 +181,12 @@ class DisksResource_ extends Resource {
   }
 }
 
-class FirewallsResource_ extends Resource {
+class FirewallsResource_ {
 
-  FirewallsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  FirewallsResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified firewall resource.
@@ -417,10 +421,12 @@ class FirewallsResource_ extends Resource {
   }
 }
 
-class GlobalOperationsResource_ extends Resource {
+class GlobalOperationsResource_ {
 
-  GlobalOperationsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  GlobalOperationsResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified operation resource.
@@ -541,10 +547,12 @@ class GlobalOperationsResource_ extends Resource {
   }
 }
 
-class ImagesResource_ extends Resource {
+class ImagesResource_ {
 
-  ImagesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  ImagesResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified image resource.
@@ -740,10 +748,12 @@ class ImagesResource_ extends Resource {
   }
 }
 
-class InstancesResource_ extends Resource {
+class InstancesResource_ {
 
-  InstancesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  InstancesResource_(Client client) :
+      _client = client;
 
   /**
    * Adds an access config to an instance's network interface.
@@ -1268,10 +1278,12 @@ class InstancesResource_ extends Resource {
   }
 }
 
-class KernelsResource_ extends Resource {
+class KernelsResource_ {
 
-  KernelsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  KernelsResource_(Client client) :
+      _client = client;
 
   /**
    * Returns the specified kernel resource.
@@ -1356,10 +1368,12 @@ class KernelsResource_ extends Resource {
   }
 }
 
-class MachineTypesResource_ extends Resource {
+class MachineTypesResource_ {
 
-  MachineTypesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  MachineTypesResource_(Client client) :
+      _client = client;
 
   /**
    * Returns the specified machine type resource.
@@ -1444,10 +1458,12 @@ class MachineTypesResource_ extends Resource {
   }
 }
 
-class NetworksResource_ extends Resource {
+class NetworksResource_ {
 
-  NetworksResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  NetworksResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified network resource.
@@ -1604,10 +1620,12 @@ class NetworksResource_ extends Resource {
   }
 }
 
-class ProjectsResource_ extends Resource {
+class ProjectsResource_ {
 
-  ProjectsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  ProjectsResource_(Client client) :
+      _client = client;
 
   /**
    * Returns the specified project resource.
@@ -1678,10 +1696,12 @@ class ProjectsResource_ extends Resource {
   }
 }
 
-class RoutesResource_ extends Resource {
+class RoutesResource_ {
 
-  RoutesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  RoutesResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified route resource.
@@ -1838,10 +1858,12 @@ class RoutesResource_ extends Resource {
   }
 }
 
-class SnapshotsResource_ extends Resource {
+class SnapshotsResource_ {
 
-  SnapshotsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  SnapshotsResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified persistent disk snapshot resource.
@@ -1998,10 +2020,12 @@ class SnapshotsResource_ extends Resource {
   }
 }
 
-class ZoneOperationsResource_ extends Resource {
+class ZoneOperationsResource_ {
 
-  ZoneOperationsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  ZoneOperationsResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes the specified zone-specific operation resource.
@@ -2134,10 +2158,12 @@ class ZoneOperationsResource_ extends Resource {
   }
 }
 
-class ZonesResource_ extends Resource {
+class ZonesResource_ {
 
-  ZonesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  ZonesResource_(Client client) :
+      _client = client;
 
   /**
    * Returns the specified zone resource.
